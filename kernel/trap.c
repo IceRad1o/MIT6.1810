@@ -77,8 +77,21 @@ usertrap(void)
     exit(-1);
 
   // give up the CPU if this is a timer interrupt.
-  if(which_dev == 2)
+  if (which_dev == 2) {
+    p->ticks += 1;
+    if (p->ticks == p->interval) {
+      if (p->entrance) {
+        p->entrance = 0;
+	      *p->saved_trapframe = *p->trapframe;
+        p->ticks = 0;
+        p->trapframe->epc = p->handler;
+      }
+      else {
+        p->ticks -= 1;
+      }
+    }
     yield();
+  }
 
   usertrapret();
 }

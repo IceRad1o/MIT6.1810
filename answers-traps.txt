@@ -1,0 +1,6 @@
+RISC-V assembly
+* Riscv use a0 - a7 to store arguments of functions.  In printf, a2 load value 13;
+* Compiler inlined two functions, f(8)+1 is converted to constant 12 in assembly
+* Printf: 64A
+* 0x38
+

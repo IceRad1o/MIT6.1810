@@ -1,6 +1,6 @@
 # 
 
-![course](.\assets\course.JPG)
+![course](./assets/course.JPG)
 
 # Introduction
 
